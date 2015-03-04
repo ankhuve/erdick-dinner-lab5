@@ -1,0 +1,244 @@
+#priceDivider{
+	border-color:black;
+	width:95%;
+}
+
+#confirmDishRow{
+	margin-top:20px;
+}
+
+#ingredients{
+	background-color:#FFE7AD; 
+	padding:10px; 
+	padding-top:2px; 
+	margin-top:0px;
+}
+
+#numberOfGuests{
+	margin-top:5px;
+}
+
+h1{
+	margin-top: 0px;
+	margin-bottom:0px;
+	padding-bottom: 30px;
+	padding-left: 20px;
+	background-color: #E8E8E8;
+	padding-top: 30px;
+	font-weight: bold;
+}
+
+#headerDivider{
+	border-color:black;width:100%;border-width:3px;
+	margin: 0px;
+}
+
+h2{
+	margin-top:15px;
+}
+
+#myDinnerHeader{
+	background-color: #FFE7AD;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+#backToEdit{
+	margin-top: 5px;
+}
+
+#myDinner{
+	margin-top: 5px;
+	padding-left: 40px;
+}
+
+#dinnerDetails{
+	margin-top: 30px;
+
+}
+
+#printRecipe{
+	font-size: 18px;
+	padding-right: 40px;
+	padding-left: 40px;
+	border-radius:0px;
+}
+
+.btn{
+	color:black;
+	font-weight: bold;
+}
+
+#preparations{
+	margin-top: 30px;
+}
+
+.dishName{
+	margin-top: 0px;
+}
+
+#dishDetailsRow{
+	margin-bottom: 30px;
+}
+
+h4{
+	margin-top: 5px;
+}
+
+h3{
+	text-transform: uppercase;
+}
+
+.btn-group-vertical .btn{
+	background-color: white;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	border: 0px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+#subDishHeader{
+	background-color: #E8E8E8;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+#confirmDinner{
+	width: 90%;
+	margin-left: 5%;
+}
+
+.totalCost{
+	margin-top: 0px;
+}
+
+#subHeaderDivider{
+	border-color:black;
+	width:100%;
+	border-width:2px;
+	margin: 0px;
+}
+
+#leftPanel{
+	height: 85vh;
+	border-right: black solid 2px;
+	padding-right: 0px;
+}
+
+#selectDish{
+	padding-left: 0px;
+}
+
+.offset{
+	padding-left: 50px;
+}
+
+#foodBackground {
+	background-image:url("images/food-background.jpg");
+	background-repeat:no-repeat;
+	background-size:cover;
+	min-width:100%;
+	height:100vh;
+}
+
+#startScreenHeader {
+	background-color:rgba(255,231,173,0.8);
+	color:black;
+}
+
+#quickStartBox {
+	margin-top:100px;
+	background-color:rgba(255,255,255,0.8);
+	margin-left:15px;
+	padding-bottom:15px;
+}
+
+#quickBoxMargin {
+	margin-left:30px;
+}
+
+.quickBoxHeader {
+	text-transform:none;
+	font-family: 'Varela Round', sans-serif;
+}
+
+#priceDivider.reduceMargin {
+	margin-top:10px;
+	margin-bottom:5px;
+}
+
+.form-inline{
+	padding-bottom: 20px;
+}
+
+.dropdown{
+	display: inline;
+}
+
+#search{
+	background-color: #FFE7AD;
+}
+
+h3.offset{
+	padding-top: 20px;
+	margin-top: 0px;
+}
+
+#topDishRow{
+	margin-top: 40px;
+}
+
+#divOfStartscreenness{
+	height:100vh;
+	width: 100vw;
+}
+
+#startscreenSmall{
+	color:black;
+}
+
+.container.full-width{
+	padding: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+	width: 100vw;
+}
+
+#foodBackground{
+	padding: 0px;
+}
+
+#dishImage{
+	width: 100%;
+	min-height: 150px;
+	margin-bottom: 15px;
+}
+
+#rightPanel{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.clickable:hover{
+	cursor: pointer;
+}
+
+.imgThumb {
+	height:200px;
+}
+
+.instructions {
+	height:250px;
+	overflow: scroll;
+}
+
+.numberWheel {
+	width:40px; 
+	text-align:center;
+}
+

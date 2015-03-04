@@ -1,4 +1,35 @@
+
+<div class="col-md-3" id="leftPanel">
+	<div id="guestDetails">
+		<h2>My Dinner</h2>
+		People: <input type="number" ng-model="numberOfGuests" ng-change="setNumberOfGuest(numberOfGuests)" class="numberWheel"/>
+	</div>
+	<div id="dishDetails">
+		<div id="chosenDish">
+			<h4>
+				<hr id="subHeaderDivider">
+				<div class="row" id="subDishHeader">
+					<div class="col-md-9">Dish Name</div>
+					<div class="col-md-2">Cost</div>
+				</div>
+				<hr id="subHeaderDivider">
+			</h4>
+			<strong>
+				<span id="fullMenu"></span>
+			</strong>
+		</div>
+		<hr id="priceDivider">
+		<div id="cost" class="col-md-6 col-md-offset-6">
+			<h3 class="totalCost">SEK <span id="totalCost"></span></h3>
+		</div>
+		<div id="confirm">
+			<button id="confirmDinner" class="btn btn-warning enabled">Confirm Dinner</button>
+		</div>
+	</div>
+</div>
+
 People: <input type="number" ng-model="numberOfGuests" ng-change="setNumberOfGuest(numberOfGuests)"/>
+
 
 <!-- TODO in Lab 5: Display the items on the menu with cost for each -->
 
