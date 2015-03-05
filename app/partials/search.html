@@ -6,18 +6,30 @@
 
 <ng-include src="'partials/dinner-sidebar.html'" ng-controller="DinnerCtrl"></ng-include>
 
-<input ng-model="query"/>
-<button ng-click="search(query)">Find</button>
-{{status}}
-<img src="images/loading.gif" ng-show="loading"/>
+<div id="selectDish">
+	<div class="col-md-9" id="rightPanel">
+		<div id="search">
+			<h3 class="offset"> Select Dish </h3>
+			<hr id="priceDivider">
+		  	<div class="form-inline offset">
+		  		<input ng-model="query" class="form-control" placeholder="Enter keywords" type="text submit" id="searchBar"/>
+		    	<!-- <input type="text submit" class="form-control" placeholder="Enter key words" id="searchBar"> -->
 
-<div ng-repeat="dish in dishes">
-	<div class="col-md-3 clickable">
-		<div id="dishImage">
-			<img ng-src="{{dish.ImageURL120}}">
+				<button type="submit" class="btn btn-warning" id="searchButton" ng-click="search(query)">Search</button> {{status}}
+			</div>
+  		</div>
+  		<img src="images/loading.gif" ng-show="loading"/>
+		<div ng-repeat="dish in dishes">
+			<a ng-href="#/dish/{{dish.RecipeID}}">
+			<div class="col-md-3 clickable">
+				<div id="dishImage">
+					<img ng-src="{{dish.ImageURL120}}">
+				</div>
+				<div style="font-weight:bold">{{dish.Title}}</div>
+			<!-- <a ng-href="#/dish/{{dish.recipeID}}">View more</a> -->
+			<!-- {{dish.Category}} {{dish.subCategory}} -->
+			</div>
+			</a>
 		</div>
-		<div style="font-weight:bold">{{dish.Title}}</div>
-	<a ng-href="#/dish/{{dish.recipeID}}">View more</a>
-	{{dish.Category}} {{dish.subCategory}}
 	</div>
 </div>

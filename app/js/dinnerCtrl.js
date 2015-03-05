@@ -3,6 +3,16 @@
 dinnerPlannerApp.controller('DinnerCtrl', function ($scope,Dinner) {
 
   $scope.numberOfGuests = Dinner.getNumberOfGuests();
+  // $scope.pendingPrice = 
+
+  $scope.getPendingPrice = function(){
+  	var pending = Dinner.getPending();
+  	if(pending === "none"){
+  		return 0;
+  	} else {
+  		return Dinner.getPriceOfDish(pending);
+  	}
+  }
 
   $scope.setNumberOfGuest = function(number){
     Dinner.setNumberOfGuests(number);
@@ -11,6 +21,10 @@ dinnerPlannerApp.controller('DinnerCtrl', function ($scope,Dinner) {
   $scope.getNumberOfGuests = function() {
     return Dinner.getNumberOfGuests();
   }
+
+
+  // console.log(Dinner.getFullMenu);
+  // $scope.fullMenu = Dinner.getFullMenu();
 
   // TODO in Lab 5: Implement the methods to get the dinner menu
   // add dish to menu and get total menu price

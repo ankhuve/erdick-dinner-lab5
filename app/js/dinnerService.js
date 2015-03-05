@@ -25,7 +25,7 @@ dinnerPlannerApp.factory('Dinner',function ($resource, $cookieStore) {
   }
 
   this.getNumberOfGuests = function() {
-    var numberOfGuest = cookieStore.get("numGuests");
+    var numberOfGuest = $cookieStore.get("numGuests");
     return numberOfGuest;
   }
 
@@ -106,8 +106,6 @@ dinnerPlannerApp.factory('Dinner',function ($resource, $cookieStore) {
   // you will need to modify the model (getDish and getAllDishes) 
   // a bit to take the advantage of Angular resource service
   // check lab 5 instructions for details
-
-
 
 
 

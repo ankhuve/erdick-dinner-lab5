@@ -1,5 +1,51 @@
 <!-- We include the sidebar as it is shared across two screens. -->
+<div class="mainHeader">
+	<h1 class="clickable">HOMELETTE <small><i>From the best chefs in the world directly into your kitchen</i></small></h1>
+	<hr id="headerDivider">
+</div>
 <ng-include src="'partials/dinner-sidebar.html'" ng-controller="DinnerCtrl"></ng-include>
+
+<div id="dishDetailView">
+	<div class="col-md-4">
+
+		{{status}}
+		{{ getDish(getDishID()) }}
+
+		<div id="dishName">
+			<h2><span id="nameOfDish"></span></h2>
+		</div>
+
+		<div id="dishPicture">
+			<span id="dishImg"></span>
+		</div>
+
+		<div id="dishDescription">
+			<span id="dishDesc"></span>
+		</div>
+		<br/>
+		<div id="backButton">
+				<button class="btn btn-warning backToEdit">Back to select dish</button>
+		</div>
+	</div>
+</div>
+<div id="dishIngredientView">
+	<div class="col-md-5" id="ingredients">
+		<h3 ng-controller="DinnerCtrl">Ingredients for {{ getNumberOfGuests() }} people</h3>
+		<div id="dishOverview">
+			<span id="menuDetails"></span>
+			<hr id='priceDivider'>
+			<div class='row'>
+				<div class='col-md-4'>
+					<center><button class='btn btn-warning backToEdit' id='addButton'>Confirm dish</button></center>
+				</div>
+				<div class='col-md-offset-5 col-md-1'> SEK </div>
+				<div class='col-md-1'> {{ priceOf(getDishID()) }}</div>
+			</div>
+			<!-- <span id=""></span> -->
+		</div>
+	</div>
+</div>
+<!-- {{ priceOf(getDishID()) }} -->
 
 <!-- TODO in Lab 5: Display the dish information including image, Description, 
 Instructions, Ingredients and total cost. -->
