@@ -8,6 +8,7 @@ dinnerPlannerApp.controller('SearchCtrl', function ($scope,Dinner) {
 	   Dinner.searchDishes.get({title_kw:query},function(data){
 	     	$scope.dishes=data.Results;
 	     	$scope.loading = false;
+	     	// console.log(data);
 	     	$scope.status = "Showing " + data.Results.length + " results";
 	   	},function(data){
 	     	$scope.status = "There was an error";

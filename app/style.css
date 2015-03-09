@@ -242,3 +242,7 @@ h3.offset{
 	text-align:center;
 }
 
+#dishDescription {
+	height:250px;
+	overflow: scroll;
+}

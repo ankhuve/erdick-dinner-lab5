@@ -13,7 +13,6 @@
 			<hr id="priceDivider">
 		  	<div class="form-inline offset">
 		  		<input ng-model="query" class="form-control" placeholder="Enter keywords" type="text submit" id="searchBar"/>
-		    	<!-- <input type="text submit" class="form-control" placeholder="Enter key words" id="searchBar"> -->
 
 				<button type="submit" class="btn btn-warning" id="searchButton" ng-click="search(query)">Search</button> {{status}}
 			</div>
@@ -21,14 +20,14 @@
   		<img src="images/loading.gif" ng-show="loading"/>
 		<div ng-repeat="dish in dishes">
 			<a ng-href="#/dish/{{dish.RecipeID}}">
-			<div class="col-md-3 clickable">
-				<div id="dishImage">
-					<img ng-src="{{dish.ImageURL120}}">
+				<div class="col-md-3 clickable">
+					<center>
+						<div id="dishImage">
+							<img ng-src="{{dish.ImageURL120}}">
+						</div>
+						<div style="font-weight:bold">{{dish.Title}}</div>
+					</center>
 				</div>
-				<div style="font-weight:bold">{{dish.Title}}</div>
-			<!-- <a ng-href="#/dish/{{dish.recipeID}}">View more</a> -->
-			<!-- {{dish.Category}} {{dish.subCategory}} -->
-			</div>
 			</a>
 		</div>
 	</div>

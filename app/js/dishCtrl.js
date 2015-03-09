@@ -1,42 +1,47 @@
 // Dinner controller that we use whenever we want to display detailed
 // information for one dish
 dinnerPlannerApp.controller('DishCtrl', function ($scope,$routeParams,Dinner) {
-	$scope.getDishID = function(){
-		var dishID = $routeParams.dishId;
-		return dishID;
+	$scope.priceOfPending = 0;
+	$scope.pendingDishID = $routeParams.dishId;
+
+	$scope.getPendingInfo = function(){
+		$scope.status = "Retrieving dish...";
+		console.log("PendingDishId: "+$scope.pendingDishID);
+		$scope.loading = true;
+		$scope.ready = false;
+		Dinner.getDish.get({id:$scope.pendingDishID},function(data){
+			$scope.pendingDish = data;
+			Dinner.addPending(data);
+			$scope.status = "";
+			$scope.loading = false;
+			$scope.ready = true;
+		}, function(data){
+			$scope.status = "There was an error";
+		});
 	}
 
-	$scope.priceOf = function(dishID) {
-		return Dinner.getPriceOfDish(dishID);
+	$scope.getPendingInfo();
+
+	$scope.priceOf = function(dish){
+		if(!dish){
+			return "retrieving data..."
+		} else {
+			return Dinner.getPriceOfDish(dish);
+		}
 	}
 
-	$scope.getDish = function(query){
-	   $scope.status = "Retrieving dish...";
-	   $scope.loading = true;
-	   Dinner.getDish.get({id:query},function(data){
-	     	$scope.pendingDish=data.Results;
-	     	$scope.loading = false;
-	     	$scope.status = "Showing " + data.Results.length + " results";
-	   	},function(data){
-	     	$scope.status = "There was an error";
-	   	});
- 	}
+  	$scope.getNumberOfGuests = function() {
+    	return Dinner.getNumberOfGuests();
+  	}
 
+  	$scope.confirmDish = function(){
+  		Dinner.addDishToMenu(Dinner.getPending());
+  		Dinner.removePending();
 
+  	}
 
-	// 	$scope.status = "swag";
-	// 	$scope.loading = true;
-	// 	Dinner.getDish.get({id:query}, function(data){
-	// 		$scope.pendingDish = data.Results;
-	// 	})
-	// 	return Dinner.getDish(dishID);
-	// }
-	// $scope.pendingDish = Dinner.getDish();
-
-
-  // $routeParams.dishId
-  // TODO in Lab 5: you need to get the dish according to the routing parameter
-  // $routingParams.paramName
-  // Check the app.js to figure out what is the paramName in this case
+  	$scope.backToEdit = function(){
+  		Dinner.removePending();
+  	}
   
 });

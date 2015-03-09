@@ -1,5 +1,5 @@
 
-<div class="col-md-3" id="leftPanel">
+<div class="col-md-3" id="leftPanel" ng-controller="DinnerCtrl">
 	<div id="guestDetails">
 		<h2>My Dinner</h2>
 		People: <input type="number" ng-model="numberOfGuests" ng-change="setNumberOfGuest(numberOfGuests)" class="numberWheel"/>
@@ -15,23 +15,32 @@
 				<hr id="subHeaderDivider">
 			</h4>
 			<strong>
-				<!-- Använd ng-repeat för alla dishes i menu.  -->
-				<!-- <div ng-model="fullMenu"></div> -->
-				<div class="row">
-					<div class="col-md-9"> Pending </div>
-					<div class="col-md-2"> {{ getPendingPrice() }} </div>
+				<div ng-repeat="dish in fullMenu">
+					<div class="row">
+						<div class="col-md-8">
+							{{dish.Title}}
+						</div>
+						<div class="col-md-3">
+							{{ priceOf(dish).toFixed(1) }}
+							<span class='glyphicon glyphicon-remove clickable' ng-click="removeDish(dish.RecipeID)"></span>
+						</div>
+					</div>
 				</div>
 
-				<!-- {{ Dinner.menu }} -->
-				<!-- <span id="fullMenu"></span> -->
+				<div class="row">
+					<div class="col-md-9"> Pending </div>
+					<div class="col-md-2"> {{ getPendingPrice().toFixed(1) }} </div>
+
+				</div>
 			</strong>
 		</div>
 		<hr id="priceDivider">
+
 		<div id="cost" class="col-md-6 col-md-offset-6">
-			<h3 class="totalCost">SEK <span id="totalCost"></span></h3>
+			<h3 class="totalCost">SEK {{ totalCost().toFixed(1) }}</h3>
 		</div>
 		<div id="confirm">
-			<button id="confirmDinner" class="btn btn-warning enabled">Confirm Dinner</button>
+			<a href="#/confirm"><button id="confirmDinner" class="btn btn-warning" ng-disabled="pendingEnabled()">Confirm Dinner </button></a>
 		</div>
 	</div>
 </div>

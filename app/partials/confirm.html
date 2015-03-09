@@ -1,0 +1,62 @@
+<div class="mainHeader">
+	<h1 class="clickable">HOMELETTE <small><i>From the best chefs in the world directly into your kitchen</i></small></h1>
+	<hr id="headerDivider">
+</div>
+
+<!-- <ng-include src="'partials/dinner-sidebar.html'" ng-controller="DinnerCtrl"></ng-include> -->
+
+<!-- <div ng-controller="ConfirmCtrl">
+	<h1> Hej </h1>
+	<img src="images/loading.gif" ng-show="loading"/>
+</div> -->
+
+<div id="dinnerOverviewView">
+	<div class="row" id="myDinnerHeader">
+		<div class="col-md-4" >
+			<h2 id="myDinner">My Dinner: {{ numberOfGuests }} people</h2>
+		</div>
+		<div class="col-md-4 col-md-offset-4">
+			<a href="#/search"><button class="btn btn-warning">Go back and edit dinner</button></a>
+		</div>
+	</div>
+
+	<hr id="headerDivider">
+	<div id="dinnerDetails">
+
+		<!-- Menu length: {{ menu.length }} -->
+
+		<div ng-repeat="dish in menu">
+			<div class="col-md-2 col-md-offset-1">
+				<div class="row">
+
+					<img ng-src="{{dish.ImageURL}}" class="imgThumb">
+				</div>
+				<div class="row">
+					<strong>
+						{{ dish.Title }}
+					</strong>
+				</div>
+				<div class="row">
+					SEK {{ priceOf(dish).toFixed(1) }}
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-2 col-md-offset-1" style="margin-top:200px;">
+			<div class="row">
+				<strong>Total Price:</strong>
+			</div>
+			<div class="row">
+				SEK {{ totalMenuPrice().toFixed(1) }}
+			</div>
+		</div>
+
+	</div>	
+	
+	<hr style='border-color:black;width:100%;border-width:3px;'>
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4">
+			<center><a href="#/recipe"><button id="printRecipe" class="btn btn-warning">Print full recipe</button></a></center>
+		</div>
+	</div>
+</div>

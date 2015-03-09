@@ -1,0 +1,40 @@
+<div class="mainHeader">
+	<h1 class="clickable">HOMELETTE <small><i>From the best chefs in the world directly into your kitchen</i></small></h1>
+	<hr id="headerDivider">
+</div>
+
+<div id="dinnerPreparationView">
+	<div class="row" id="myDinnerHeader">
+		<div class="col-md-4">
+			<h2 id="myDinner">My Dinner: {{ numberOfGuests }} people</h2>
+		</div>
+		<div class="col-md-4 col-md-offset-4">
+			<a href="#/confirm"><button class="btn btn-warning">Go back and edit dinner</button></a>
+		</div>
+	</div>
+
+	<hr id="headerDivider">
+	<div id="preparations">
+		<div ng-repeat="dish in menu">
+			<div class="row" id="dishDetailsRow">
+				<div class="col-md-2">
+					<img ng-src="{{dish.ImageURL}}" class="imgThumb"/>
+				</div>
+				<div class="col-md-4">
+					<h3 class="dishName">
+						<strong>
+							<p class="text-uppercase">
+								{{dish.Title}}
+							</p>
+						</strong>
+					</h3>
+					{{dish.Description}}
+				</div>
+				<div class="col-md-5">
+					<h4><strong> Preparation </strong></h4>
+					<div class="instructions">{{dish.Instructions}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

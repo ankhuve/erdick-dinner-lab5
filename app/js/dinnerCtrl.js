@@ -1,9 +1,6 @@
-// Dinner controller that we use whenever we have view that needs to 
-// display or modify the dinner menu
 dinnerPlannerApp.controller('DinnerCtrl', function ($scope,Dinner) {
 
   $scope.numberOfGuests = Dinner.getNumberOfGuests();
-  // $scope.pendingPrice = 
 
   $scope.getPendingPrice = function(){
   	var pending = Dinner.getPending();
@@ -22,11 +19,33 @@ dinnerPlannerApp.controller('DinnerCtrl', function ($scope,Dinner) {
     return Dinner.getNumberOfGuests();
   }
 
+  $scope.priceOf = function(dish){
+    return Dinner.getPriceOfDish(dish);
+  }
 
-  // console.log(Dinner.getFullMenu);
-  // $scope.fullMenu = Dinner.getFullMenu();
+  $scope.removeDish = function(id){
+    Dinner.removeDishFromMenu(id);
+  }
 
-  // TODO in Lab 5: Implement the methods to get the dinner menu
-  // add dish to menu and get total menu price
+  $scope.totalCost = function(){
+    $scope.totalPrice = 0;
+    for(dish in $scope.fullMenu){
+      $scope.totalPrice += $scope.priceOf($scope.fullMenu[dish]);
+    }
+    return $scope.totalPrice + $scope.getPendingPrice();
+  }
 
+  $scope.fullMenu = Dinner.getFullMenu();
+
+  $scope.pendingEnabled = function(){
+    if(Dinner.hasPending()){
+      return true;
+    } else {
+      return false;
+    }
+  }
+  // $scope.hasPending = Dinner.hasPending();
+
+  // console.log("fullMenu in dinnerCtrl.js");
+  // console.log($scope.fullMenu);
 });
